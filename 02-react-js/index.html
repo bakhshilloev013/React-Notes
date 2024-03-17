@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>React JS</title>
+    </head>
+    <body>
+        <div id="app"></div>
+
+        <!-- Подключаем библиотеку React -->
+        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <!-- Подключаем библиотеку ReactDOM. Эта библиотека нужна чтобы загружать ваши компоненты React на страницу -->
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script>
+            // Чтобы создать компонент React обращаемся к объекту React который мы получили по первой ссылке и применяем к нему метод createElement
+            // Метод createElement принимает 3 аргумента: 1) тип компонента 2) опции/аргументы/свойства 3) контент вашего компонента
+            const helloWorldHeading = React.createElement(
+                'h1',
+                null,
+                'Hello from React'
+            );
+
+            // Вызываем элемент чтобы внутри него создать наш проект
+            const container = document.getElementById('app');
+            // createRoot создает корневой компонент приложения
+            const root = ReactDOM.createRoot(container);
+            // Метод render в React используется для отрисовки React-компонента в DOM. Он принимает два аргумента: компонент, который вы хотите отрисовать, и контейнер (обычно DOM-элемент), в который вы хотите поместить этот компонент
+            root.render(helloWorldHeading);
+        </script>
+    </body>
+</html>
