@@ -6,6 +6,24 @@ function Posts() {
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(true);
 
+    // useEffect(() => {
+    //     const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+    //     const posts = await res.json();
+    //     setPosts(posts);
+    // })
+
+    // useEffect(async () => {
+    //     try {
+    //         const res = await fetch(
+    //             'https://jsonplaceholder.typicode.com/posts'
+    //         );
+    //         const posts = await res.json();
+    //         setPosts(posts);
+    //     } catch (error) {
+    //         setError(error.message);
+    //     }
+    // });
+
     // оборачиваем блок кода в async await надстройку
     useEffect(() => {
         // для более лучшей оптимизации работы useEffect стоит обернуть весь функционал в другую функцию и вызвать её
@@ -31,10 +49,8 @@ function Posts() {
 
     return (
         <>
-            {/* добавили заглавие и черту снизу */}
             <h1>Posts</h1>
             <hr />
-            {/* если идёт загрузка мы выводим сообщение загрузки но как только загрузка закончится и состояние загрузки изменится мы выводим посты */}
             {isLoading ? (
                 <h1>Loading...</h1>
             ) : (
