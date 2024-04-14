@@ -1,8 +1,9 @@
 import Todo from './Todo';
+import styles from './TodoList.module.css'; 
 
 function TodoList({ todos, deleteHandler }) {
     return (
-        <div>
+        <div className={styles.todoListContainer}>
             {!todos.length ? (
                 <div>Todos is empty</div>
             ) : (
