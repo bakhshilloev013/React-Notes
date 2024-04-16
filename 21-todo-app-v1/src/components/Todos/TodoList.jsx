@@ -5,7 +5,7 @@ function TodoList({ todos, deleteHandler }) {
     return (
         <div className={styles.todoListContainer}>
             {!todos.length ? (
-                <div>Todos is empty</div>
+                <h2>Todos is empty</h2>
             ) : (
                 todos.map((text, i) => {
                     return (
