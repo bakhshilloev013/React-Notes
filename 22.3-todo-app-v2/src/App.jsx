@@ -42,11 +42,14 @@ function App() {
         }
     };
 
+
     return (
         <div className="App">
             <h1>Todo App</h1>
-            <TodoForm addHandler={addHandler} />
-            <TodosActions setTodos={setTodos} />
+            <TodoForm addHandler={addHandler} /> 
+            {/* Создали новый компонент для двух новых кнопок */}
+            {/* Если есть задачи то выводим кнопки */}
+            {todos.length ? <TodosActions todos={todos} setTodos={setTodos} /> : <></>}
             <TodoList
                 todos={todos}
                 toggleTodoHandler={toggleTodoHandler}

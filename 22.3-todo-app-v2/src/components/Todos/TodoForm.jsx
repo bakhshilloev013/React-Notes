@@ -23,7 +23,7 @@ function TodoForm({ addHandler }) {
                     placeholder="Enter new Todo"
                     type="text"
                 />
-                <Button>Submit</Button>
+                <Button title="Add todo">Submit</Button>
             </form>
         </div>
     );
