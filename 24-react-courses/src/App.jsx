@@ -19,7 +19,7 @@ function App() {
                         <Route path="about" element={<About />} />
                         <Route path="contacts" element={<Contacts />} />
                         <Route path="courses" element={<Courses />}>
-                            <Route path="singlecourse" element={<SingleCourse />} />
+                            <Route path="singlecourse/:slug" element={<SingleCourse />} />
                         </Route>
                         <Route path="*" element={<NotFound />} />
                     </Route>
