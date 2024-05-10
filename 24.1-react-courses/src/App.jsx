@@ -19,7 +19,7 @@ function App() {
                         <Route path="contacts" element={<Contacts />} />
                         {/* Добавили маршрут к компоненту Courses */}
                         <Route path="courses" element={<Courses />} />
-                        {/* Добавили динамичную ссылку к компоненту SinglCourse с параметром где передали slug */}
+                        {/* Добавили динамичную ссылку к компоненту SinglCourse с параметром где передали свойство slug для объекта функции useParams */}
                         <Route path="courses/:slug" element={<SingleCourse />} />
                         <Route path="*" element={<NotFound />} />
                     </Route>
