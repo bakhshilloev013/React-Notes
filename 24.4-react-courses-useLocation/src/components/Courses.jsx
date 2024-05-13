@@ -11,7 +11,6 @@ function Courses() {
     // По этой причине мы строем новый объект из полученной строки
     const params = Object.assign({}, parsed);
     const sortValue = Object.values(params)[0];
-    let titleText = 'Courses';
     useEffect(() => {
         if (params.hasOwnProperty('sort')) {
             if (data.every((item) => item.hasOwnProperty(sortValue))) {
