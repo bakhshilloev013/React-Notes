@@ -10,10 +10,15 @@ function Courses() {
     const parsed = queryString.parse(location.search); // когда мы получаем "объект" из метода parse на самом деле это не объект
     // По этой причине мы строем новый объект из полученной строки
     const params = Object.assign({}, parsed);
+    // Получаем значение из свойства объекта
     const sortValue = Object.values(params)[0];
+    // Применяем useEffect для функции navigate чтобы навигация выпполнилась один раз
     useEffect(() => {
+        // Провераяем на наличие свойства sort
         if (params.hasOwnProperty('sort')) {
+            // Проверяем все ли объекты из массива имеют такие значения
             if (data.every((item) => item.hasOwnProperty(sortValue))) {
+                // сортируем массив по ключевому слову
                 data.sort((a, b) => {
                     if (a[sortValue] > b[sortValue]) {
                         return -1;
