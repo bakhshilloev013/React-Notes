@@ -1,11 +1,14 @@
-import { Link, useLocation} from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import queryString from 'query-string'; // необходимо установить пакет query-string
 import { useState } from 'react';
 import courses from '../data/courses';
 
-// Построили функционал сортировки курсов которая принимает оригинальный массив с курсами и ключ по которому сортировать
 function sortCourses(courses, key) {
     const sortedCourses = [...courses];
+    // Если строка запроса отсутствует или нет нужных свойст то сортировка не произойдет и вернется исходный массив
+    if (!key) {
+        return sortedCourses;
+    }
     sortedCourses.sort((a, b) => {
         if (a[key] < b[key]) {
             return -1;
@@ -22,16 +25,17 @@ function Courses() {
     const location = useLocation();
     const query = queryString.parse(location.search);
     const [sortKey, setSortKey] = useState(query.sort);
-    // в состоянии sortedCourses передаем значение полученное из функции сортировки
-    const [sortedCourses, setSortedCourses] = useState(sortCourses(courses, sortKey));
+    const [sortedCourses, setSortedCourses] = useState(
+        sortCourses(courses, sortKey)
+    );
 
     return (
         <>
-            <h1>Courses</h1>
+            {/* Изменили заглавие */}
+            <h1>{sortKey ? `Courses sorted by ${sortKey}` : 'Courses'}</h1>
             <div>
-                {/* изменили courses на отсортированный массив sortedCourses */}
-                {sortedCourses.map((item, ) => (
-                    <Link key={item.id} className='courseLink' to={item.slug}>
+                {sortedCourses.map((item) => (
+                    <Link key={item.id} className="courseLink" to={item.slug}>
                         {item.title}
                     </Link>
                 ))}
